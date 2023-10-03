@@ -1,0 +1,38 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-extended-base.yml
+
+- name: Bootstrap extended base for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop extended base package selection is installed
+      apt:
+        name:
+          - nnn
+          - jq
+          - vim-addon-manager
+          - vim-airline
+          - vim-fugitive
+          - vim-voom
+        state: present
+    - name: Get stat of starship binary
+      stat:
+        path: /usr/local/bin/starship
+      register: starship_stat
+      changed_when: false
+    - name: Get installed starship version
+      shell: /usr/local/bin/starship --version | head -1 | awk '{ print "v"$2 }'
+      register: starship_version
+      when: starship_stat.stat.exists
+      changed_when: false
+    - name: Get latest starship version
+      shell: curl -sS https://api.github.com/repos/starship/starship/releases/latest | jq -r '.name'
+      register: starship_latest_version
+      when: starship_stat.stat.exists
+      changed_when: false
+    - name: Install latest starship version
+      shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
+      when:
+        - not starship_stat.stat.exists or (starship_version.stdout != starship_latest_version.stdout)
