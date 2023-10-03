@@ -4,30 +4,29 @@ Make your GNU/Linux Debian Desktop usable.
 
 ## Requirements
 
+OS: GNU/Linux Debian (bookworm)
+
+Tools:
+
 * busybox
 
 or:
 
 * wget
-* unzip
 
 ## Usage
 
 We assume a very minimal Linux Desktop system.
 
 ```sh
-❯ mkdir linux-desktop-bootstrap
-❯ cd linux-desktop-bootstrap
-❯ busybox wget https://github.com/jkirk/linux-desktop-bootstrap/archive/refs/heads/main.zip -O - | busybox unzip -j -
+❯ busybox wget https://raw.githubusercontent.com/jkirk/linux-desktop-bootstrap/main/linux-desktop-bootstrap.sh
 ❯ sh ./linux-desktop-bootstrap.sh
 ```
 
-If you have wget and unzip installed and do not want to use busybox, run:
+If you have wget installed and do not want to use busybox, run:
 
 ```sh
-❯ wget https://github.com/jkirk/linux-desktop-bootstrap/archive/refs/reads/main.zip
-❯ unzip main.zip
-❯ cd linux-desktop-bootstrap
+❯ wget https://raw.githubusercontent.com/jkirk/linux-desktop-bootstrap/main/linux-desktop-bootstrap.sh
 ❯ sh ./linux-desktop-bootstrap.sh
 ```
 

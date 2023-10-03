@@ -9,5 +9,6 @@
 sudo apt update -q
 sudo apt install -q -y --no-install-recommends git etckeeper ansible-core
 [ ! -d "${HOME}/.dotfiles" ] && git clone https://github.com/jkirk/dotfiles.git "${HOME}/.dotfiles"
-( cd "${HOME}/.dotfiles"; sh "./create-symlinks.sh" ) || exit 1
-ansible-playbook -K linux-desktop-base.yml
+[ -d "${HOME}/.dotfiles" ] && ( cd "${HOME}/.dotfiles"; git pull; sh "./create-symlinks.sh" ) || exit 1
+[ ! -d "${HOME}/linux-desktop-bootstrap" ] && git clone https://github.com/jkirk/linux-desktop-bootstrap
+[ -d "${HOME}/linux-desktop-bootstrap" ] && ( cd "${HOME}/linux-desktop-bootstrap"; git pull; ansible-playbook linux-desktop-base.yml ) || exit 1
