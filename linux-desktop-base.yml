@@ -1,0 +1,35 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-base.yml
+
+- name: Bootstrap Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Disable apt recommenends
+      ansible.builtin.lineinfile:
+        dest: /etc/apt/apt.conf.d/99no-recommends
+        line: 'apt::install-recommends "false";'
+        create: true
+        owner: root
+        group: root
+        mode: 0644
+    - name: Ensure Linux-Desktop base package selection is installed
+      apt:
+        name:
+          - curl
+          - etckeeper
+          - git
+          - htop
+          - iotop
+          - psmisc
+          - tmux
+          - unzip
+          - vim
+          - zsh
+        state: present
+    - name: Set zsh shell for user
+      user:
+        name: "{{ lookup('env', 'USER') }}"
+        shell: /bin/zsh
