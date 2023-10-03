@@ -12,7 +12,6 @@
         name:
           - nnn
           - jq
-          - vim-addon-manager
           - vim-airline
           - vim-fugitive
           - vim-voom
