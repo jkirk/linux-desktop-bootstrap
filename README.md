@@ -17,7 +17,8 @@ We assume a very minimal Linux Desktop system.
 
 ```sh
 ❯ mkdir linux-desktop-bootstrap
-❯ busybox https://github.com/jkirk/linux-desktop-bootstrap/archive/refs/reads/main.zip -O - | busybox unzip -j -
+❯ cd linux-desktop-bootstrap
+❯ busybox wget https://github.com/jkirk/linux-desktop-bootstrap/archive/refs/heads/main.zip -O - | busybox unzip -j -
 ❯ ./linux-desktop-bootstrap.sh
 ```
 
