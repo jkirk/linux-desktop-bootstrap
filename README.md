@@ -19,7 +19,7 @@ We assume a very minimal Linux Desktop system.
 ❯ mkdir linux-desktop-bootstrap
 ❯ cd linux-desktop-bootstrap
 ❯ busybox wget https://github.com/jkirk/linux-desktop-bootstrap/archive/refs/heads/main.zip -O - | busybox unzip -j -
-❯ ./linux-desktop-bootstrap.sh
+❯ sh ./linux-desktop-bootstrap.sh
 ```
 
 If you have wget and unzip installed and do not want to use busybox, run:
@@ -28,7 +28,7 @@ If you have wget and unzip installed and do not want to use busybox, run:
 ❯ wget https://github.com/jkirk/linux-desktop-bootstrap/archive/refs/reads/main.zip
 ❯ unzip main.zip
 ❯ cd linux-desktop-bootstrap
-❯ ./linux-desktop-bootstrap.sh
+❯ sh ./linux-desktop-bootstrap.sh
 ```
 
 Note, that unzip does not support stdin as input. You have to download the zip file first.

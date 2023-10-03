@@ -27,6 +27,7 @@
           - tmux
           - unzip
           - vim
+          - vim-scripts
           - zsh
         state: present
     - name: Set zsh shell for user

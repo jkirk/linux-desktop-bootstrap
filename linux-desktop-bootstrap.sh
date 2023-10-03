@@ -6,7 +6,8 @@
 # License:       This file is licensed under the GPL v2.
 ################################################################################
 
-sudo apt install -y --no-install-recommends git etckeeper ansible
+sudo apt update -q
+sudo apt install -q -y --no-install-recommends git etckeeper ansible-core
 [ ! -d "${HOME}/.dotfiles" ] && git clone https://github.com/jkirk/dotfiles.git "${HOME}/.dotfiles"
 ( cd "${HOME}/.dotfiles"; sh "./create-symlinks.sh" ) || exit 1
 ansible-playbook -K linux-desktop-base.yml
