@@ -1,0 +1,24 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-office.yml
+
+- name: Install GUI/Office software for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop GUI/Office package selection is installed
+      ansible.builtin.apt:
+        name:
+          - autokey-gtk
+          - curl
+          - dioden
+          - doublecmd-gtk
+          - gnupg
+          - keepassxc
+          - libreoffice
+          - mpv
+          - thunderbird
+          - syncthing
+          - vim-gtk3
+        state: present

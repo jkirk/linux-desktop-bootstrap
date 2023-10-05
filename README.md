@@ -62,6 +62,22 @@ The following (command line) tools will be installed:
 - vim-fugitive
 - vim-voom
 
+## GUI/Office software selection (linux-desktop-office.yml)
+
+The following GUI/Office tools will be installed:
+
+- autokey-gtk
+- curl
+- dioden
+- doublecmd-gtk
+- gnupg
+- keepassxc
+- libreoffice
+- mpv
+- thunderbird
+- syncthing
+- vim-gtk3
+
 ## FAQ
 
 ### busybox is not installed. What shall I do?
