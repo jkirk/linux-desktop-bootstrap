@@ -1,0 +1,30 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-office.yml
+
+- name: Install Messaging software for Linux-Desktop
+  hosts: localhost
+  become: yes
+  handlers:
+    - name: apt update
+      ansible.builtin.apt:
+        update_cache: true
+
+  tasks:
+    - name: signal-desktop: Download + Install official public software signing key
+      ansible.builtin.shell: curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor -o /usr/local/share/keyrings/signal-desktop-keyring.gpg
+    - name: signal-desktop: Add repository
+      ansible.builtin.copy:
+        content: "deb [arch=amd64 signed-by=/usr/local/share/keyrings/signal-desktop.gpg] https://updates.signal.org/desktop/apt xenial main"
+        path: /etc/apt/sources.list.d/signal-xenial.list
+        mode: 0644
+        owner: root
+        group: root
+      notify: apt update
+    - name: Flush handlers
+      meta: flush_handlers
+    - name: signal-desktop: Install Signal
+      ansible.builtin.apt:
+        name: signal-desktop
+        state: present

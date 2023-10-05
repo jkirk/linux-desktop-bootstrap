@@ -78,6 +78,13 @@ The following GUI/Office tools will be installed:
 - syncthing
 - vim-gtk3
 
+## Special software not in Debian
+
+- linux-desktop-element.yml: Installs [Element App](https://element.io/download)
+- linux-desktop-signal.yml Install [Signal Desktop](https://signal.org/download/#)
+- linux-desktop-virtualbox.yml [Virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
+- linux-desktop-vscodium.yml [VSCodium](https://vscodium.com/#install)
+
 ## FAQ
 
 ### busybox is not installed. What shall I do?

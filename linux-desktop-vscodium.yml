@@ -1,0 +1,30 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-virtualbox.yml
+
+- name: Install VSCodium for Linux-Desktop
+  hosts: localhost
+  become: yes
+  handlers:
+    - name: apt update
+      ansible.builtin.apt:
+        update_cache: true
+
+  tasks:
+    - name: vscodium: Download + Install official public software signing key
+      ansible.builtin.shell: curl -fsSL https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor -o /usr/local/share/keyrings/vscodium-archive-keyring.gpg
+    - name: vscodium: Add repository
+      ansible.builtin.copy:
+        content: "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main"
+        path: /etc/apt/sources.list.d/vscodium.list
+        mode: 0644
+        owner: root
+        group: root
+      notify: apt update
+    - name: Flush handlers
+      meta: flush_handlers
+    - name: vscodium: Install VSCodium
+      ansible.builtin.apt:
+        name: codium
+        state: present
