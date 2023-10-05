@@ -12,7 +12,7 @@
         name:
           - autokey-gtk
           - curl
-          - dioden
+          - diodon
           - doublecmd-gtk
           - gnupg
           - keepassxc

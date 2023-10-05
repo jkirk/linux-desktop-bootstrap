@@ -3,7 +3,7 @@
 #
 #   ansible-playbook -K linux-desktop-virtualbox.yml
 
-- name: Install Virtualbox for Linux-Desktop
+- name: Install VirtualBox for Linux-Desktop
   hosts: localhost
   become: yes
   handlers:
@@ -12,19 +12,19 @@
         update_cache: true
 
   tasks:
-    - name: virtualbox: Download + Install official public software signing key
-      ansible.builtin.shell: curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --dearmor -o /usr/local/share/keyrings/signal-desktop.gpg
-    - name: virtualbox: Add repository
+    - name: "virtualbox: Download + Install official public software signing key"
+      ansible.builtin.shell: curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --dearmor --yes -o /usr/local/share/keyrings/oracle-virtualbox-2016.gpg
+    - name: "virtualbox: Add repository"
       ansible.builtin.copy:
-        content: "deb [arch=amd64 signed-by=/usr/local/share/keyrings/oracle_vbox_2016.asc] https://download.virtualbox.org/virtualbox/debian bookworm contrib"
-        path: /etc/apt/sources.list.d/virtualbox.list
+        content: "deb [arch=amd64 signed-by=/usr/local/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian bookworm contrib"
+        dest: /etc/apt/sources.list.d/virtualbox.list
         mode: 0644
         owner: root
         group: root
       notify: apt update
     - name: Flush handlers
       meta: flush_handlers
-    - name: virtualbox: Install Virtualbox
+    - name: "virtualbox: Install VirtualBox"
       ansible.builtin.apt:
         name: virtualbox-7.0
         state: present

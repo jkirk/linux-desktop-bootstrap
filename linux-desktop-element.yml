@@ -12,24 +12,24 @@
         update_cache: true
 
   tasks:
-    - name: element: Download + Install official public software signing key
+    - name: "element: Download + Install official public software signing key"
       ansible.builtin.get_url:
         url: https://packages.element.io/debian/element-io-archive-keyring.gpg
         dest: /usr/local/share/keyrings/element-io-archive-keyring.gpg
         mode: 0644
         owner: root
         group: root
-    - name: element: Add repository
+    - name: "element: Add repository"
       ansible.builtin.copy:
         content: "deb [signed-by=/usr/local/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main"
-        path: /etc/apt/sources.list.d/element-io.list
+        dest: /etc/apt/sources.list.d/element-io.list
         mode: 0644
         owner: root
         group: root
       notify: apt update
     - name: Flush handlers
       meta: flush_handlers
-    - name: element: Install Element App
+    - name: "element: Install Element App"
       ansible.builtin.apt:
-        name: signal-desktop
+        name: element-desktop
         state: present

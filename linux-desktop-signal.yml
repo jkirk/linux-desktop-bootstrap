@@ -12,19 +12,19 @@
         update_cache: true
 
   tasks:
-    - name: signal-desktop: Download + Install official public software signing key
-      ansible.builtin.shell: curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor -o /usr/local/share/keyrings/signal-desktop-keyring.gpg
-    - name: signal-desktop: Add repository
+    - name: "signal-desktop: Download + Install official public software signing key"
+      ansible.builtin.shell: curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor --yes -o /usr/local/share/keyrings/signal-desktop-keyring.gpg
+    - name: "signal-desktop: Add repository"
       ansible.builtin.copy:
-        content: "deb [arch=amd64 signed-by=/usr/local/share/keyrings/signal-desktop.gpg] https://updates.signal.org/desktop/apt xenial main"
-        path: /etc/apt/sources.list.d/signal-xenial.list
+        content: "deb [arch=amd64 signed-by=/usr/local/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main"
+        dest: /etc/apt/sources.list.d/signal-xenial.list
         mode: 0644
         owner: root
         group: root
       notify: apt update
     - name: Flush handlers
       meta: flush_handlers
-    - name: signal-desktop: Install Signal
+    - name: "signal-desktop: Install Signal Desktop"
       ansible.builtin.apt:
         name: signal-desktop
         state: present

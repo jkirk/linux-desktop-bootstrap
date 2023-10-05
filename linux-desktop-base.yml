@@ -35,3 +35,10 @@
       user:
         name: "{{ lookup('env', 'USER') }}"
         shell: /bin/zsh
+    - name: Make sure /usr/local/share/keyrings exists
+      ansible.builtin.file:
+        path: /usr/local/share/keyrings
+        state: directory
+        mode: 2775
+        owner: root
+        group: staff
