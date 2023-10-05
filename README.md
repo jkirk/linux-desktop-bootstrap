@@ -81,6 +81,7 @@ The following GUI/Office tools will be installed:
 ## Special software not in Debian
 
 - linux-desktop-element.yml: Installs [Element App](https://element.io/download)
+- linux-desktop-freetube.yml: Installs [FreeTube](https://freetubeapp.io/#download)
 - linux-desktop-signal.yml Install [Signal Desktop](https://signal.org/download/#)
 - linux-desktop-virtualbox.yml [Virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
 - linux-desktop-vscodium.yml [VSCodium](https://vscodium.com/#install)

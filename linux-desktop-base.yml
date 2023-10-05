@@ -23,6 +23,7 @@
           - git
           - htop
           - iotop
+          - jq
           - psmisc
           - tmux
           - unzip
