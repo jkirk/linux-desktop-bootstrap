@@ -12,6 +12,7 @@
         name:
           - nnn
           - jq
+          - taskwarrior
           - vim-airline
           - vim-fugitive
           - vim-voom

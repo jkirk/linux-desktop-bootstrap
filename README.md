@@ -32,6 +32,36 @@ If you have wget installed and do not want to use busybox, run:
 
 Note, that unzip does not support stdin as input. You have to download the zip file first.
 
+## Base selection (linux-desktop-base.yml)
+
+The following (command line) tools will be installed:
+
+- curl
+- etckeeper
+- git
+- htop
+- iotop
+- psmisc
+- tmux
+- unzip
+- vim
+- vim-scripts
+- zsh
+
+It disables apt recommenends and sets zsh as default shell.
+
+## Extended base selection (linux-desktop-extended-base.yml)
+
+The following (command line) tools will be installed:
+
+- nnn
+- jq
+- taskwarrior
+- starship
+- vim-airline
+- vim-fugitive
+- vim-voom
+
 ## FAQ
 
 ### busybox is not installed. What shall I do?
