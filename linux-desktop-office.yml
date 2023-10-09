@@ -13,12 +13,15 @@
           - autokey-gtk
           - curl
           - diodon
+          - imagemagick-6.q16
           - doublecmd-gtk
           - gnupg
           - keepassxc
           - libreoffice
           - mpv
+          - qrencode
           - thunderbird
           - syncthing
           - vim-gtk3
+          - xclip
         state: present
