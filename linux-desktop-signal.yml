@@ -3,7 +3,7 @@
 #
 #   ansible-playbook -K linux-desktop-office.yml
 
-- name: Install Messaging software for Linux-Desktop
+- name: Install Signal-Desktop for Linux-Desktop
   hosts: localhost
   become: yes
   handlers:
@@ -24,7 +24,7 @@
       notify: apt update
     - name: Flush handlers
       meta: flush_handlers
-    - name: "signal-desktop: Install Signal Desktop"
+    - name: "signal-desktop: Install Signal-Desktop"
       ansible.builtin.apt:
         name: signal-desktop
         state: present

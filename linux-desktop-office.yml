@@ -15,7 +15,9 @@
           - diodon
           - imagemagick-6.q16
           - doublecmd-gtk
+          - freerdp2-x11
           - gnupg
+          - hamster-time-tracker
           - keepassxc
           - libreoffice
           - mpv
