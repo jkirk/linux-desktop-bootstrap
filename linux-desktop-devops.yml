@@ -11,4 +11,5 @@
       apt:
         name:
           - python3-sphinx
+          - smbclient
         state: present
