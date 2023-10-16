@@ -21,6 +21,7 @@
           - keepassxc
           - libreoffice
           - mpv
+          - network-manager-openvpn-gnome
           - qrencode
           - thunderbird
           - syncthing

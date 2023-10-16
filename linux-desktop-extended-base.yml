@@ -10,6 +10,7 @@
     - name: Ensure Linux-Desktop extended base package selection is installed
       apt:
         name:
+          - network-manager-openvpn
           - nnn
           - taskwarrior
           - vim-airline
