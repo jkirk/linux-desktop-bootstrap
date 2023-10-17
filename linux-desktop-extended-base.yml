@@ -11,6 +11,7 @@
       apt:
         name:
           - aria2
+          - git-crypt
           - network-manager-openvpn
           - nnn
           - taskwarrior
