@@ -39,6 +39,6 @@
       ansible.builtin.file:
         path: /usr/local/share/keyrings
         state: directory
-        mode: 2775
+        mode: '00755'
         owner: root
         group: staff
