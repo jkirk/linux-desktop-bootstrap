@@ -10,6 +10,7 @@
     - name: Ensure Linux-Desktop DevOps package selection is installed
       apt:
         name:
+          - nmap
           - python3-sphinx
           - smbclient
         state: present
