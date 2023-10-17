@@ -12,6 +12,7 @@
         name:
           - autokey-gtk
           - curl
+          - chromium
           - diodon
           - imagemagick-6.q16
           - doublecmd-gtk
