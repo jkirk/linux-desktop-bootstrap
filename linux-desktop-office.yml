@@ -23,6 +23,7 @@
           - libreoffice
           - mpv
           - network-manager-openvpn-gnome
+          - python3-qrtools
           - qrencode
           - thunderbird
           - syncthing
