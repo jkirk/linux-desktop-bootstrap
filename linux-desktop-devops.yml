@@ -11,6 +11,8 @@
       apt:
         name:
           - nmap
+          - podman-docker
+          - podman-compose
           - python3-sphinx
           - smbclient
         state: present
