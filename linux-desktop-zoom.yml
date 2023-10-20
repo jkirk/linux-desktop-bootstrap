@@ -1,0 +1,12 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-zoom.yml
+
+- name: Install Zoom for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: "Zoom: Install Zoom"
+      ansible.builtin.apt:
+        deb: "https://zoom.us/client/latest/zoom_amd64.deb"
