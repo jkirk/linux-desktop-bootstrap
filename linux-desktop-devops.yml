@@ -14,6 +14,7 @@
           - uidmap
           - podman-docker
           - podman-compose
+          - slirp4netns
           - python3-sphinx
           - smbclient
         state: present
