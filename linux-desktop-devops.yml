@@ -11,10 +11,12 @@
       apt:
         name:
           - nmap
-          - uidmap
+          - python3-sphinx
+          - smbclient
+          # podman:
+          - golang-github-containernetworking-plugin-dnsname
           - podman-docker
           - podman-compose
           - slirp4netns
-          - python3-sphinx
-          - smbclient
+          - uidmap
         state: present
