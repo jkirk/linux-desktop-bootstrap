@@ -10,9 +10,12 @@
     - name: Ensure Linux-Desktop DevOps package selection is installed
       apt:
         name:
+          - htop
+          - iotop
           - nmap
           - python3-sphinx
           - smbclient
+          - strace
           # podman:
           - golang-github-containernetworking-plugin-dnsname
           - podman-docker
