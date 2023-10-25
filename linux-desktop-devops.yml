@@ -10,8 +10,6 @@
     - name: Ensure Linux-Desktop DevOps package selection is installed
       apt:
         name:
-          - htop
-          - iotop
           - nmap
           - python3-sphinx
           - smbclient
