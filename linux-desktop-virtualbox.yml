@@ -24,7 +24,9 @@
       notify: apt update
     - name: Flush handlers
       meta: flush_handlers
-    - name: "virtualbox: Install VirtualBox"
+    - name: "virtualbox: Install VirtualBox + Linux Kernel Headers"
       ansible.builtin.apt:
-        name: virtualbox-7.0
+        name:
+          - virtualbox-7.0
+          - linux-headers-amd64
         state: present
