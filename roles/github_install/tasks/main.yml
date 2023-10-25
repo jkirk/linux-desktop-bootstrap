@@ -1,0 +1,16 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-rustdesk.yml
+
+- name: "{{ github_install_name }}: Get latest {{ github_install_fullname }} version"
+  shell: "curl -sS https://api.github.com/repos/{{ github_install_repos }}/releases/latest | jq -r '.name'"
+  register: github_latest_version
+  changed_when: false
+- name: "{{ github_install_name }}: Get download URL of latest {{ github_install_fullname }} version"
+  shell: "curl -sS https://api.github.com/repos/{{ github_install_repos }}/releases | jq -r '.[0].assets[] | select(.browser_download_url | test(\".*{{ github_install_arch|default('amd64') }}.deb$\")) | .browser_download_url'"
+  register: github_download_url
+  changed_when: false
+- name: "{{ github_install_name }}: Install {{ github_install_fullname }}"
+  ansible.builtin.apt:
+    deb: "{{ github_download_url.stdout }}"

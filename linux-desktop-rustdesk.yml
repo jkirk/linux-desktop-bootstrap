@@ -1,0 +1,14 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-rustdesk.yml
+
+- name: Install RustDesk for Linux-Desktop
+  hosts: localhost
+  become: yes
+  roles:
+    - role: github_install
+      github_install_fullname: RustDesk
+      github_install_name: rustdesk
+      github_install_repos: rustdesk/rustdesk
+      github_install_arch: x86_64
