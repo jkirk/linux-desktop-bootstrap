@@ -19,6 +19,7 @@
           - vim-fugitive
           - vim-voom
           - yt-dlp
+          - uptimed
         state: present
     - name: Get stat of starship binary
       stat:
