@@ -20,6 +20,7 @@
           - vim-voom
           - yt-dlp
           - uptimed
+          - wifi-qr
         state: present
     - name: Get stat of starship binary
       stat:
