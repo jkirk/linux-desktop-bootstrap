@@ -14,13 +14,14 @@
           - git-crypt
           - network-manager-openvpn
           - nnn
+          - recode
           - taskwarrior
+          - uptimed
           - vim-airline
           - vim-fugitive
           - vim-voom
-          - yt-dlp
-          - uptimed
           - wifi-qr
+          - yt-dlp
         state: present
     - name: Get stat of starship binary
       stat:
