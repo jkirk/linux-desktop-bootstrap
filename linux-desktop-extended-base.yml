@@ -10,11 +10,14 @@
     - name: Ensure Linux-Desktop extended base package selection is installed
       apt:
         name:
+          - apt-file
           - aria2
+          - ddgr
           - git-crypt
           - network-manager-openvpn
           - nnn
           - recode
+          - tasksh
           - taskwarrior
           - uptimed
           - vim-airline
