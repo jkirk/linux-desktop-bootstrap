@@ -17,6 +17,7 @@
           - network-manager-openvpn
           - nnn
           - recode
+          - timewarrior
           - tasksh
           - taskwarrior
           - uptimed
