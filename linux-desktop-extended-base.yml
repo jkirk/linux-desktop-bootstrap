@@ -14,8 +14,10 @@
           - aria2
           - ddgr
           - git-crypt
+          - git-filter-repo
           - network-manager-openvpn
           - nnn
+          - python3-venv
           - recode
           - timewarrior
           - tasksh
