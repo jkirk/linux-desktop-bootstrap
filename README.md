@@ -2,6 +2,21 @@
 
 Make your GNU/Linux Debian Desktop usable.
 
+## Description (aka What makes a Debian Desktop usable?)
+
+The default Debian desktop comes with only the most basic software stack.
+
+To make it really usable, a lot more needs to be installed, and I got quite
+annoyed at having to find and install the tools I needed every time I set up a
+new Debian desktop (even if it was not for myself).
+
+So here it is: a simple script `linux-desktop-bootstrap.sh` that does the most basic things:
+
+- install the following "bootstrapping" packages: `git`, `etckeeper`, `ansible-core`
+- clone my [dotfiles](https://github.com/jkirk/dotfiles.git)
+- clone / update this `linux-desktop-boostrap` Ansible playbook collection to `$HOME/linux-desktop-bootstrap`
+- deploy the [Base selection (linux-desktop-base.yml)](#base-selection-linux-desktop-baseyml)
+
 ## Requirements
 
 OS: GNU/Linux Debian (bookworm)
@@ -28,25 +43,26 @@ If you have wget installed and do not want to use busybox, run:
 ❯ wget -O - https://raw.githubusercontent.com/jkirk/linux-desktop-bootstrap/main/linux-desktop-bootstrap.sh | sh
 ```
 
-Note, that unzip does not support stdin as input. You have to download the zip file first.
+Note, that unzip does not support stdin as input. You have to download the zip-file first.
 
 ## Base selection (linux-desktop-base.yml)
 
-The following (command line) tools will be installed:
+See: [linux-desktop-base.yml](https://github.com/jkirk/linux-desktop-bootstrap/blob/main/linux-desktop-base.yml)
+
+This playbook disables apt recommends, sets zsh as the default shell, and installs the following basic (command-line) tools:
 
 - curl
 - etckeeper
 - git
 - htop
 - iotop
+- jq
 - psmisc
 - tmux
 - unzip
 - vim
 - vim-scripts
 - zsh
-
-It disables apt recommenends and sets zsh as default shell.
 
 ## Extended base selection (linux-desktop-extended-base.yml)
 
