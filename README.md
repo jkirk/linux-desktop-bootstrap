@@ -76,6 +76,23 @@ The following (command line) tools will be installed:
 - vim-fugitive
 - vim-voom
 
+## DevOps software selection (linux-desktop-devops.yml)
+
+The following (command line) tools will be installed:
+
+- nmap
+- python3-sphinx
+- smbclient
+- strace
+
+podman:
+
+- golang-github-containernetworking-plugin-dnsname
+- podman-docker
+- podman-compose
+- slirp4netns
+- uidmap
+
 ## GUI/Office software selection (linux-desktop-office.yml)
 
 The following GUI/Office tools will be installed:
@@ -92,13 +109,20 @@ The following GUI/Office tools will be installed:
 - syncthing
 - vim-gtk3
 
+## Special software in Debian
+
+- linux-desktop-darktable.yml: Installs [darktable](https://www.darktable.org/) - an open source photography workflow application and raw developer
+- linux-desktop-samba.yml: Installs Samba - SMB/CIFS file, print, and login server for Unix
+
 ## Special software not in Debian
 
 - linux-desktop-element.yml: Installs [Element App](https://element.io/download)
 - linux-desktop-freetube.yml: Installs [FreeTube](https://freetubeapp.io/#download)
+- linux-desktop-rustdesk.yml Install [rustdesk](https://rustdesk.com/) - a full-featured open source remote control
 - linux-desktop-signal.yml Install [Signal Desktop](https://signal.org/download/#)
 - linux-desktop-virtualbox.yml [Virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads)
 - linux-desktop-vscodium.yml [VSCodium](https://vscodium.com/#install)
+- linux-desktop-zoom.yml [Zoom](https://zoom.us/download#client_4meeting)
 
 ## FAQ
 
