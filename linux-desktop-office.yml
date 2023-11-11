@@ -14,10 +14,12 @@
           - curl
           - chromium
           - diodon
+          - hunspell-de-at
           - imagemagick-6.q16
           - doublecmd-gtk
           - freerdp2-x11
           - gnupg
+          - gimp
           - hamster-time-tracker
           - keepassxc
           - libreoffice
