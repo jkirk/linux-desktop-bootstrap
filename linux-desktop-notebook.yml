@@ -1,0 +1,31 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-notebook.yml
+
+- name: Bootstrap Notebook Tools for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop Notebook package selection is installed
+      apt:
+        name:
+          - battery-stats
+          # Recommends for battery-stats:
+          - gnuplot
+          - gnuplot-x11
+          - python3-matplotlib
+          # ---
+          - i7z
+          - s-tui
+          - tlp
+          # If your notebook is not Lenovo, you could also try the following package
+          # - laptop-mode-tools
+        state: present
+    - name: Deploy Linux Desktop tlp configuration
+      template:
+        src: tlp.d/99-linux-desktop.conf.j2
+        dest: /etc/tlp.d/99-linux-desktop.conf
+        mode: 0664
+        owner: root
+        group: root
