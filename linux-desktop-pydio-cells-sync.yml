@@ -1,0 +1,32 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-pydio-cells-sync.yml
+
+- name: Install Pydio Cells Sync for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: "pydio-cells-sync: Ensure dependencies for Pydio Cells Sync are installed"
+      apt:
+        name:
+          - libwebkit2gtk-4.0-37
+          - libayatana-appindicator3-1
+    - name: "pydio-cells-sync: Get latest Pydio Cells Sync version"
+      shell: "curl -sS https://api.github.com/repos/pydio/cells-sync/releases/latest | jq -r '.tag_name'"
+      register: pydio_latest_version
+      changed_when: false
+    - name: "pydio-cells-sync: Create /opt/pydio-cells-sync"
+      file:
+        path: /opt/pydio-cells-sync
+        state: directory
+        mode: '00755'
+        owner: root
+        group: root
+    - name: "pydio-cells-sync: Download latest Pydio Cells Sync version"
+      ansible.builtin.get_url:
+        url: https://download.pydio.com/pub/cells-sync/release/{{ pydio_latest_version.stdout | replace('v','') }}/linux-amd64/cells-sync
+        dest: /opt/pydio-cells-sync/cells-sync
+        mode: '00755'
+        owner: root
+        group: root
