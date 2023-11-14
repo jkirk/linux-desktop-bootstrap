@@ -11,6 +11,7 @@
       apt:
         name:
           - nmap
+          - pre-commit
           - python3-sphinx
           - smbclient
           - strace
