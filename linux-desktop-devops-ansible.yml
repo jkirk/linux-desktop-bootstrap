@@ -1,0 +1,16 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-devops-ansible.yml
+
+- name: Bootstrap Ansbile related packages for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop DevOps Ansible package selection is installed
+      apt:
+        name:
+          - ansible
+          - ansible-lint
+          - ansible-mitogen
+        state: present
