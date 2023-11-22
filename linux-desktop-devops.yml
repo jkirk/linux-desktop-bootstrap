@@ -10,6 +10,7 @@
     - name: Ensure Linux-Desktop DevOps package selection is installed
       apt:
         name:
+          - codespell
           - nmap
           - pre-commit
           - python3-sphinx
