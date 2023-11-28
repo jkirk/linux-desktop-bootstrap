@@ -17,6 +17,7 @@
           - smbclient
           - strace
           - wakeonlan
+          - whois
           # podman:
           - golang-github-containernetworking-plugin-dnsname
           - podman-docker
