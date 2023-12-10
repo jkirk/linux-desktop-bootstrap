@@ -13,6 +13,7 @@
           - apt-file
           - aria2
           - ddgr
+          - ffmpeg
           - git-crypt
           - git-filter-repo
           - network-manager-openvpn
