@@ -11,6 +11,7 @@
       apt:
         name:
           - codespell
+          - gitk
           - nmap
           - pre-commit
           - python3-sphinx
