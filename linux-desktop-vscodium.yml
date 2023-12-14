@@ -7,9 +7,7 @@
   hosts: localhost
   become: yes
   handlers:
-    - name: apt update
-      ansible.builtin.apt:
-        update_cache: true
+    - import_tasks: handlers/main.yml
 
   tasks:
     - name: "vscodium: Download + Install official public software signing key"

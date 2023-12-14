@@ -1,0 +1,40 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-steam.yml
+
+- name: Install Steam for Linux-Desktop
+  hosts: localhost
+  become: yes
+  handlers:
+    - import_tasks: handlers/main.yml
+
+  tasks:
+    - name: Get dpkg architecture
+      shell: dpkg --print-foreign-architectures
+      register: dpkg_foreign_architectures
+      changed_when: false
+
+    - name: Add dpkg extra architecture i386
+      command: dpkg --add-architecture i386
+      when: not dpkg_foreign_architectures.stdout is search("i386")
+
+    - name: Check apt contrib repository
+      shell: apt-add-repository -L
+      register: apt_contrib_repository
+      changed_when: false
+      notify: apt update
+
+    - name: Add apt contrib repository
+      command: apt-add-repository -y -n contrib
+      when: not apt_contrib_repository.stdout is search("contrib")
+      notify: apt update
+
+    - name: Flush handlers
+      meta: flush_handlers
+
+    - name: Ensure Linux-Desktop steam-installer package is installed
+      apt:
+        name:
+          - steam-installer
+        state: present
