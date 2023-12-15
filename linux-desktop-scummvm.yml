@@ -1,0 +1,15 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-scummv.yml
+
+- name: Install ScummVM for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+
+    - name: Ensure Linux-Desktop scummvm package is installed
+      apt:
+        name:
+          - scummvm
+        state: present
