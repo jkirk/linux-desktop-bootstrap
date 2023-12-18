@@ -15,6 +15,7 @@
           - nmap
           - pre-commit
           - python3-sphinx
+          - smartmontools
           - smbclient
           - strace
           - wakeonlan
