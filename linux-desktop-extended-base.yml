@@ -20,6 +20,7 @@
           - nnn
           - python3-venv
           - recode
+          - reptyr
           - sox
           - timewarrior
           - tasksh
