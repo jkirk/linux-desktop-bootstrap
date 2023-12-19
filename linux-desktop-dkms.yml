@@ -1,0 +1,14 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-dkms.yml
+
+- name: Install Dynamic Kernel Module Support Framework for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop Dynamic Kernel Module Support Framework package selection is installed
+      apt:
+        name:
+          - dkms
+        state: present
