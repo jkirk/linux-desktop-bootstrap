@@ -1,0 +1,14 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-localsend.yml
+
+- name: Install LocalSend for Linux-Desktop
+  hosts: localhost
+  become: yes
+  roles:
+    - role: github_install
+      github_install_fullname: LocalSend
+      github_install_name: LocalSend
+      github_install_repos: localsend/localsend
+      github_install_arch: x86-64
