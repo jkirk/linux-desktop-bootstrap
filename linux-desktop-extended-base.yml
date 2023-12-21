@@ -16,6 +16,7 @@
           - ffmpeg
           - git-crypt
           - git-filter-repo
+          - ncdu
           - network-manager-openvpn
           - nnn
           - python3-venv
