@@ -16,6 +16,7 @@
           - ffmpeg
           - git-crypt
           - git-filter-repo
+          - wireguard-tools
           - ncdu
           - network-manager-openvpn
           - nnn
