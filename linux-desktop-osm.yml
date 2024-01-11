@@ -1,0 +1,14 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-osm.yml
+
+- name: Install OSM software for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop OSM package selection is installed
+      ansible.builtin.apt:
+        name:
+          - josm
+        state: present
