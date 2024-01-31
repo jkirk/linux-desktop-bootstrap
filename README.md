@@ -116,6 +116,7 @@ The following GUI/Office tools will be installed:
 
 ## Special software not in Debian
 
+- linux-desktop-anydesk.yml: Installs [AnyDesk](https://anydesk.com/en/downloads/linux)
 - linux-desktop-element.yml: Installs [Element App](https://element.io/download)
 - linux-desktop-freetube.yml: Installs [FreeTube](https://freetubeapp.io/#download)
 - linux-desktop-rustdesk.yml Install [rustdesk](https://rustdesk.com/) - a full-featured open source remote control

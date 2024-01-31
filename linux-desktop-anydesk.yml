@@ -1,0 +1,36 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-anydesk.yml
+
+- name: Install AnyDesk for Linux-Desktop
+  hosts: localhost
+  become: yes
+  vars:
+    apt_key_url: "https://keys.anydesk.com/repos/DEB-GPG-KEY"
+    apt_key_file: "anydesk.gpg"
+    apt_repository: "http://deb.anydesk.com/"
+    apt_release: "all"
+    apt_component: "main"
+    apt_sources_file: "anydesk-stable.list"
+  handlers:
+    - import_tasks: handlers/main.yml
+
+  tasks:
+    - name: "anydesk: Download + Install official public software signing key"
+      ansible.builtin.shell: "curl -fsSL {{ apt_key_url }} | gpg --dearmor --yes -o /etc/apt/keyrings/{{ apt_key_file }}"
+    - name: "anydesk: Add repository"
+      ansible.builtin.copy:
+        content: "deb [signed-by=/etc/apt/keyrings/{{ apt_key_file }}] {{ apt_repository }} {{ apt_release }} {{ apt_component }}"
+        dest: "/etc/apt/sources.list.d/{{ apt_sources_file }}"
+        mode: 0644
+        owner: root
+        group: root
+      notify: apt update
+    - name: Flush handlers
+      meta: flush_handlers
+    - name: "anydesk: Install AnyDesk"
+      ansible.builtin.apt:
+        name:
+          - anydesk
+        state: present
