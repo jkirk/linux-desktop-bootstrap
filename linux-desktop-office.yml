@@ -18,8 +18,6 @@
           - imagemagick-6.q16
           - doublecmd-gtk
           - freerdp2-x11
-          - fonts-crosextra-carlito
-          - fonts-crosextra-caladea
           - gnupg
           - gimp
           - hamster-time-tracker
@@ -35,4 +33,43 @@
           - syncthing
           - vim-gtk3
           - xclip
+        state: present
+
+    - name: Install font related packages
+      apt:
+        name:
+          - fonts-3270
+          - fonts-cantarell
+          - fonts-crosextra-caladea
+          - fonts-crosextra-carlito
+          - fonts-dejavu
+          - fonts-droid-fallback
+          - fonts-fantasque-sans
+          - fonts-firacode
+          - fonts-font-awesome
+          - fonts-freefont-otf
+          - fonts-freefont-ttf
+          - fonts-inconsolata
+          - fonts-lato
+          - fonts-liberation
+          - fonts-liberation2
+          - fonts-linuxlibertine
+          - fonts-lmodern
+          - fonts-mathjax
+          - fonts-noto
+          - fonts-noto-color-emoji
+          - fonts-noto-mono
+          - fonts-opensymbol
+          - fonts-powerline
+          - fonts-quicksand
+          - fonts-roboto
+          - fonts-sil-gentium
+          - fonts-sil-gentium-basic
+          - fonts-symbola
+          - fonts-texgyre
+          - fonts-urw-base35
+          - ttf-bitstream-vera
+          - ttf-mscorefonts-installer
+          # non-free
+          # - fonts-ubuntu
         state: present
