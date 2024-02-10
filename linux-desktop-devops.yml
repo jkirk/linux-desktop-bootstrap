@@ -19,6 +19,7 @@
           - smartmontools
           - smbclient
           - strace
+          - tcpdump
           - wakeonlan
           - whois
           # podman:
