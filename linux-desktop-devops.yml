@@ -11,8 +11,10 @@
       apt:
         name:
           - codespell
+          - devscripts
           - fd-find
           - gitk
+          - iperf
           - nmap
           - pre-commit
           - python3-sphinx
