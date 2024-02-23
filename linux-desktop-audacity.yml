@@ -11,4 +11,5 @@
       apt:
         name:
           - audacity
+          - pavucontrol
         state: present
