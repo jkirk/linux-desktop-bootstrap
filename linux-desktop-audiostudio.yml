@@ -1,0 +1,17 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-audiostudio.yml
+
+- name: Install Audio Studio tools for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop Audio Studio package selection is installed
+      apt:
+        name:
+          - ardour
+          - audacity
+          - jack-mixer
+          - pavucontrol
+        state: present

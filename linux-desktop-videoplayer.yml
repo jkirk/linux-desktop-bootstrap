@@ -1,0 +1,15 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-videoplayer.yml
+
+- name: Install Video Playback software for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure Linux-Desktop Video Playback package selection is installed
+      ansible.builtin.apt:
+        name:
+          - mpv
+          - vlc
+        state: present
