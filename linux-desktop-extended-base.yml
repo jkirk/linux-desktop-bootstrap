@@ -12,6 +12,7 @@
         name:
           - apt-file
           - aria2
+          - borgmatic
           - ddgr
           - ffmpeg
           - git-crypt
