@@ -13,6 +13,8 @@
           - codespell
           - devscripts
           - fd-find
+          - gh
+          - git-hub
           - gitk
           - iperf
           - nmap
@@ -22,6 +24,7 @@
           - smbclient
           - strace
           - tcpdump
+          - vim-git-hub
           - wakeonlan
           - whois
           # podman:
