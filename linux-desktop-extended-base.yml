@@ -17,7 +17,7 @@
           - ffmpeg
           - git-crypt
           - git-filter-repo
-          - wireguard-tools
+          - libsecret-tools
           - ncdu
           - network-manager-openvpn
           - nnn
@@ -25,14 +25,15 @@
           - recode
           - reptyr
           - sox
-          - timewarrior
           - tasksh
           - taskwarrior
+          - timewarrior
           - uptimed
           - vim-airline
           - vim-fugitive
           - vim-voom
           - wifi-qr
+          - wireguard-tools
           - yt-dlp
         state: present
     - name: Get stat of starship binary
