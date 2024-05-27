@@ -30,8 +30,10 @@
           - pdftk-java
           - python3-qrtools
           - qrencode
-          - thunderbird
           - syncthing
+          - tesseract-ocr
+          - tesseract-ocr-deu
+          - thunderbird
           - vim-gtk3
           - xclip
         state: present
