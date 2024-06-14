@@ -15,6 +15,7 @@
           - borgmatic
           - ddgr
           - ffmpeg
+          - fzf
           - git-crypt
           - git-filter-repo
           - libsecret-tools
