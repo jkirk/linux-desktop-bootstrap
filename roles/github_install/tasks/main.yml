@@ -16,7 +16,7 @@
   changed_when: false
   check_mode: false
 - name: "{{ github_install_name }}: Get download URL of latest {{ github_install_fullname }} version"
-  shell: "curl -sS https://api.github.com/repos/{{ github_install_repos }}/releases | jq -r '.[0].assets[] | select(.browser_download_url | test(\".*{{ github_install_arch|default('amd64') }}.deb$\")) | .browser_download_url'"
+  shell: "curl -sS https://api.github.com/repos/{{ github_install_repos }}/releases | jq -r '.[].assets[] | select(.browser_download_url | test(\".*{{ github_latest_version.stdout }}.*{{ github_install_arch|default('amd64') }}.deb$\")) | .browser_download_url'"
   register: github_download_url
   changed_when: false
   failed_when: github_download_url.stdout|length == 0
