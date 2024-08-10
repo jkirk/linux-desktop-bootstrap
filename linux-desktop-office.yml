@@ -38,6 +38,11 @@
           - xclip
         state: present
 
+    - name: Install printer driver
+      apt:
+        name:
+          - hplip
+
     - name: Install font related packages
       apt:
         name:
