@@ -28,6 +28,9 @@
           - wakeonlan
           - whois
           # podman:
+            # Workaround for Debian Bug #1065732: podman: Please "Recommends: containers-storage" so overlay driver is used by default
+          - containers-storage
+          - fuse-overlayfs
           - golang-github-containernetworking-plugin-dnsname
           - podman-docker
           - podman-compose
