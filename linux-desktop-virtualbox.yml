@@ -28,3 +28,13 @@
           - virtualbox-7.0
           - linux-headers-amd64
         state: present
+    # NOTE: VirtualBox Extension Pack needs a reboot or modprobe after VirtualBox has been installed
+    - name: "virtualbox: Download VirtualBox Extension Pack"
+      ansible.builtin.get_url:
+        url: https://download.virtualbox.org/virtualbox/7.0.20/Oracle_VM_VirtualBox_Extension_Pack-7.0.20.vbox-extpack
+        dest: /tmp/Oracle_VM_VirtualBox_Extension_Pack-7.0.20.vbox-extpack
+        owner: root
+        group: root
+        mode: 0644
+    - name: "virtualbox: Install VirtualBox Extension Pack"
+      ansible.builtin.shell: VBoxManage extpack install --accept-license=33d7284dc4a0ece381196fda3cfe2ed0e1e8e7ed7f27b9a9ebc4ee22e24bd23c --replace /tmp/Oracle_VM_VirtualBox_Extension_Pack-7.0.20.vbox-extpack
