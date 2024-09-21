@@ -1,0 +1,15 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-office.yml
+
+- name: Install grml2usb for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure grml2usb package selection is installed
+      ansible.builtin.apt:
+        name:
+          - grml2usb
+          - isolinux
+          - syslinux-utils
