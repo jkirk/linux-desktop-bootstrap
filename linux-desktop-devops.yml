@@ -13,6 +13,7 @@
           - codespell
           - devscripts
           - fd-find
+          - furo
           - gh
           - git-hub
           - gitk
