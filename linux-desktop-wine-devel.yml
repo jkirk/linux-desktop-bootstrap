@@ -44,6 +44,7 @@
     - name: "wine-devel: Install wine-devel from WineHQ"
       ansible.builtin.apt:
         name:
+          - cabextract
           - winehq-devel
           - winbind
         install_recommends: true
