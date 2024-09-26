@@ -50,7 +50,7 @@
         state: present
     - name: "wine-devel: Install winetricks from Github"
       ansible.builtin.get_url:
-        url: https://github.com/Winetricks/winetricks
+        url: https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
         dest: /usr/local/bin/winetricks
         mode: 0775
         owner: root
