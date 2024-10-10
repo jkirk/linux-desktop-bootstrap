@@ -1,27 +1,23 @@
 ---
 # Example:
 #
-#   ansible-playbook -K linux-desktop-virtualbox.yml
+#   ansible-playbook -K linux-desktop-vscodium.yml
+#
+# See: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/blob/master/README.md
 
 - name: Install VSCodium for Linux-Desktop
   hosts: localhost
   become: yes
-  handlers:
-    - import_tasks: handlers/main.yml
+  roles:
+    - role: aptrepo
+      aptrepo_apt_key_url: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
+      aptrepo_apt_key_file: "vscodium-archive-keyring.gpg"
+      aptrepo_apt_repository: "https://download.vscodium.com/debs"
+      aptrepo_apt_release: "vscodium"
+      aptrepo_apt_component: "main"
+      aptrepo_apt_sources_file: "vscodium.list"
 
   tasks:
-    - name: "vscodium: Download + Install official public software signing key"
-      ansible.builtin.shell: curl -fsSL https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor --yes -o /usr/local/share/keyrings/vscodium-archive-keyring.gpg
-    - name: "vscodium: Add repository"
-      ansible.builtin.copy:
-        content: "deb [ signed-by=/usr/local/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main"
-        dest: /etc/apt/sources.list.d/vscodium.list
-        mode: 0644
-        owner: root
-        group: root
-      notify: apt update
-    - name: Flush handlers
-      meta: flush_handlers
     - name: "vscodium: Install VSCodium"
       ansible.builtin.apt:
         name: codium
