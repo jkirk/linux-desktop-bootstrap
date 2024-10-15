@@ -6,15 +6,14 @@
 - name: Install wine-devel from WineHQ for Linux-Desktop
   hosts: localhost
   become: yes
-  vars:
-    apt_key_url: "https://dl.winehq.org/wine-builds/winehq.key"
-    apt_key_file: "winehq-archive.key"
-    apt_repository: "https://dl.winehq.org/wine-builds/debian"
-    apt_release: "bookworm"
-    apt_component: "main"
-    apt_sources_file: "winehq-bookworm.list"
-  handlers:
-    - import_tasks: handlers/main.yml
+  roles:
+    - role: aptrepo
+      aptrepo_apt_key_url: "https://dl.winehq.org/wine-builds/winehq.key"
+      aptrepo_apt_key_file: "winehq-archive.key"
+      aptrepo_apt_repository: "https://dl.winehq.org/wine-builds/debian"
+      aptrepo_apt_release: "bookworm"
+      aptrepo_apt_component: "main"
+      aptrepo_apt_sources_file: "winehq-bookworm.list"
 
   tasks:
     - name: "wine-devel: Make sure dpkg architecture amd64 is present"
@@ -29,18 +28,6 @@
         line: "i386"
         create: true
       notify: apt update
-    - name: "wine-devel: Download + Install official public software signing key"
-      ansible.builtin.shell: "curl -fsSL {{ apt_key_url }} | gpg --dearmor --yes -o /etc/apt/keyrings/{{ apt_key_file }}"
-    - name: "wine-devel: Add repository"
-      ansible.builtin.copy:
-        content: "deb [signed-by=/etc/apt/keyrings/{{ apt_key_file }}] {{ apt_repository }} {{ apt_release }} {{ apt_component }}"
-        dest: "/etc/apt/sources.list.d/{{ apt_sources_file }}"
-        mode: 0644
-        owner: root
-        group: root
-      notify: apt update
-    - name: Flush handlers
-      meta: flush_handlers
     - name: "wine-devel: Install wine-devel from WineHQ + recommended packages"
       ansible.builtin.apt:
         name:
