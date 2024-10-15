@@ -41,12 +41,13 @@
       notify: apt update
     - name: Flush handlers
       meta: flush_handlers
-    - name: "wine-devel: Install wine-devel from WineHQ"
+    - name: "wine-devel: Install wine-devel from WineHQ + recommended packages"
       ansible.builtin.apt:
         name:
           - cabextract
-          - winehq-devel
+          - ttf-mscorefonts-installer
           - winbind
+          - winehq-devel
         install_recommends: true
         state: present
     - name: "wine-devel: Install winetricks from Github"
