@@ -1,0 +1,17 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-xrdp.yml
+
+- name: Install xorgxrdp + xrdp for Linux-Desktop
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: "xrdp: Install xorgxrdp + xrdp for Linux-Desktop"
+      ansible.builtin.apt:
+        name:
+          - fuse
+          - xorgxrdp
+          - xrdp
+        state: present
