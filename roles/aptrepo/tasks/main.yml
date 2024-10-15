@@ -40,7 +40,7 @@
   when: aptrepo_keyfile_before.stat.exists
   notify: apt update
 
-- name: Add apt repository packages.gitlab.com (runner)
+- name: Add apt repository
   ansible.builtin.copy:
     content: "deb [signed-by=/etc/apt/keyrings/{{ aptrepo_apt_key_file }}] {{ aptrepo_apt_repository }} {{ aptrepo_apt_release }} {{ aptrepo_apt_component }}\n"
     dest: "/etc/apt/sources.list.d/{{ aptrepo_apt_sources_file }}"
