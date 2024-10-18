@@ -3,16 +3,16 @@
 #
 #   ansible-playbook -K linux-desktop-debian-sbuild.yml
 
-- name: Install sbuild (manual setup) for Linux-Desktop
+- name: Install Debian build environment (sbuild with unshare / mmdebstrap) for Linux-Desktop
   hosts: localhost
   become: yes
   tasks:
-    - name: Ensure sbuild + manual setup selection is installed
+    - name: Ensure Debian build environment selection is installed
       ansible.builtin.apt:
         name:
-          - sbuild
-          - schroot
-          - debootstrap
+          - autopkgtest
           - apt-cacher-ng
-          - devscripts
-          - piuparts
+          - git-buildpackage
+          - mmdebstrap
+          - sbuild
+          - uidmap
