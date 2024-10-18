@@ -10,8 +10,9 @@
     - name: Ensure Debian build environment selection is installed
       ansible.builtin.apt:
         name:
-          - autopkgtest
           - apt-cacher-ng
+          - autopkgtest
+          - debvm
           - git-buildpackage
           - mmdebstrap
           - sbuild
