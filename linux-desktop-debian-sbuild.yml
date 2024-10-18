@@ -1,0 +1,18 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-debian-sbuild.yml
+
+- name: Install sbuild (manual setup) for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure sbuild + manual setup selection is installed
+      ansible.builtin.apt:
+        name:
+          - sbuild
+          - schroot
+          - debootstrap
+          - apt-cacher-ng
+          - devscripts
+          - piuparts
