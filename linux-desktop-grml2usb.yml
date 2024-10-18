@@ -1,7 +1,7 @@
 ---
 # Example:
 #
-#   ansible-playbook -K linux-desktop-office.yml
+#   ansible-playbook -K linux-desktop-grml2usb.yml
 
 - name: Install grml2usb for Linux-Desktop
   hosts: localhost
