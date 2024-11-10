@@ -1,0 +1,36 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-syncthing.yml
+
+- name: Install Syncthing (upstream) for Linux-Desktop
+  hosts: localhost
+  become: yes
+  vars:
+    apt_key_url: "https://syncthing.net/release-key.gpg"
+    apt_key_file: "syncthing-archive-keyring.gpg"
+    apt_repository: "https://apt.syncthing.net/"
+    apt_release: "syncthing"
+    apt_component: "stable"
+    apt_sources_file: "syncthing.list"
+  handlers:
+    - import_tasks: handlers/main.yml
+
+  tasks:
+    - name: "syncthing: Download + Install official public software signing key"
+      ansible.builtin.shell: "curl -fsSL {{ apt_key_url }} | gpg --dearmor --yes -o /etc/apt/keyrings/{{ apt_key_file }}"
+    - name: "syncthing: Add repository"
+      ansible.builtin.copy:
+        content: "deb [signed-by=/etc/apt/keyrings/{{ apt_key_file }}] {{ apt_repository }} {{ apt_release }} {{ apt_component }}"
+        dest: "/etc/apt/sources.list.d/{{ apt_sources_file }}"
+        mode: 0644
+        owner: root
+        group: root
+      notify: apt update
+    - name: Flush handlers
+      meta: flush_handlers
+    - name: "syncthing: Install syncthing"
+      ansible.builtin.apt:
+        name:
+          - syncthing
+        state: present
