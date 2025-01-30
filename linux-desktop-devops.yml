@@ -24,7 +24,9 @@
           - smartmontools
           - smbclient
           - strace
+          - swaks
           - tcpdump
+          - tig
           - vim-git-hub
           - wakeonlan
           - whois
