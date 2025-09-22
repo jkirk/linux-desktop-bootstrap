@@ -34,13 +34,13 @@ or:
 We assume a very minimal Linux Desktop system.
 
 ```sh
-❯ busybox wget -O - https://raw.githubusercontent.com/jkirk/linux-desktop-bootstrap/main/linux-desktop-bootstrap.sh | sh
+❯ busybox wget -O - https://raw.githubusercontent.com/jkirk/linux-desktop-bootstrap/main/linux-desktop-bootstrap.sh | bash
 ```
 
 If you have wget installed and do not want to use busybox, run:
 
 ```sh
-❯ wget -O - https://raw.githubusercontent.com/jkirk/linux-desktop-bootstrap/main/linux-desktop-bootstrap.sh | sh
+❯ wget -O - https://raw.githubusercontent.com/jkirk/linux-desktop-bootstrap/main/linux-desktop-bootstrap.sh | bash
 ```
 
 Note, that unzip does not support stdin as input. You have to download the zip-file first.
