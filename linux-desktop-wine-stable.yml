@@ -1,9 +1,9 @@
 ---
 # Example:
 #
-#   ansible-playbook -K linux-desktop-wine-devel.yml
+#   ansible-playbook -K linux-desktop-wine-stable.yml
 
-- name: Install wine-devel from WineHQ for Linux-Desktop
+- name: Install wine-stable from WineHQ for Linux-Desktop
   hosts: localhost
   become: yes
   roles:
@@ -11,33 +11,33 @@
       aptrepo_apt_key_url: "https://dl.winehq.org/wine-builds/winehq.key"
       aptrepo_apt_key_file: "winehq-archive.key"
       aptrepo_apt_repository: "http://dl.winehq.org/wine-builds/debian"
-      aptrepo_apt_release: "{{ ansible_distribution }}"
+        aptrepo_apt_release: "{{ ansible_distribution }}"
       aptrepo_apt_component: "main"
       aptrepo_apt_sources_file: "winehq-{{ ansible_distribution }}.list"
 
   tasks:
-    - name: "wine-devel: Make sure dpkg architecture amd64 is present"
+    - name: "wine-stable: Make sure dpkg architecture amd64 is present"
       ansible.builtin.lineinfile:
         dest: "/var/lib/dpkg/arch"
         line: "amd64"
         create: true
       notify: apt update
-    - name: "wine-devel: Make sure dpkg architecture i386 is present"
+    - name: "wine-stable: Make sure dpkg architecture i386 is present"
       ansible.builtin.lineinfile:
         dest: "/var/lib/dpkg/arch"
         line: "i386"
         create: true
       notify: apt update
-    - name: "wine-devel: Install wine-devel from WineHQ + recommended packages"
+    - name: "wine-stable: Install wine-stable from WineHQ + recommended packages"
       ansible.builtin.apt:
         name:
           - cabextract
           - ttf-mscorefonts-installer
           - winbind
-          - winehq-devel
+          - winehq-stable
         install_recommends: true
         state: present
-    - name: "wine-devel: Install winetricks from Github"
+    - name: "wine-stable: Install winetricks from Github"
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
         dest: /usr/local/bin/winetricks
