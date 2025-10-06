@@ -15,6 +15,7 @@
           - fd-find
           - furo
           - gh
+          - git-extras
           - git-hub
           - gitk
           - iperf
@@ -24,7 +25,9 @@
           - smartmontools
           - smbclient
           - strace
+          - swaks
           - tcpdump
+          - tig
           - vim-git-hub
           - wakeonlan
           - whois

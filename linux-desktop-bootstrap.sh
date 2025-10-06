@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 # Filename:      linux-desktop-boostrap.sh
 # Purpose:       Bootstrap a Linux Desktop
 # Authors:       Darshaka Pathirana <dpat@syn-net.org>
@@ -26,4 +26,4 @@ ${APT_COMMAND} install -q -y --no-install-recommends git etckeeper ansible-core
 [ ! -d "${HOME}/.dotfiles" ] && git clone https://github.com/jkirk/dotfiles.git "${HOME}/.dotfiles"
 [ -d "${HOME}/.dotfiles" ] && ( cd "${HOME}/.dotfiles"; git pull; sh "./create-symlinks.sh" ) || exit 1
 [ ! -d "${HOME}/linux-desktop-bootstrap" ] && git clone https://github.com/jkirk/linux-desktop-bootstrap
-[ -d "${HOME}/linux-desktop-bootstrap" ] && ( cd "${HOME}/linux-desktop-bootstrap"; git pull; ansible-playbook linux-desktop-base.yml ) || exit 1
+[ -d "${HOME}/linux-desktop-bootstrap" ] && ( cd "${HOME}/linux-desktop-bootstrap"; git pull; ansible-playbook -K linux-desktop-base.yml ) || exit 1
