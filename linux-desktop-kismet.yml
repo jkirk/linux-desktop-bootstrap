@@ -1,0 +1,24 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-kismet.yml
+#
+# See: https://kismetwireless.net/packages/#pick-the-right-packages
+
+- name: Install Kismet for Linux-Desktop
+  hosts: localhost
+  become: yes
+  roles:
+    - role: aptrepo
+      aptrepo_apt_key_url: "https://www.kismetwireless.net/repos/kismet-release.gpg.key"
+      aptrepo_apt_key_file: "kismet-archive-keyring.gpg"
+      aptrepo_apt_repository: "https://www.kismetwireless.net/repos/apt/release/{{ ansible_distribution_release }}"
+      aptrepo_apt_release: "{{ ansible_distribution_release }}"
+      aptrepo_apt_component: "main"
+      aptrepo_apt_sources_file: "kismet.list"
+
+  tasks:
+    - name: "kismet: Install Kismet"
+      ansible.builtin.apt:
+        name: kismet
+        state: present
