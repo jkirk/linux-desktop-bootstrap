@@ -12,10 +12,15 @@
         name:
           - apt-cacher-ng
           - autopkgtest
+          - build-essential
           - debvm
+          - devscripts
           - git-buildpackage
           - libgitlab-api-v4-perl  # needed for salsa cli from devscripts
           - mmdebstrap
+          - piuparts
           - qemu-utils
+          - quilt
           - sbuild
+          - sbuild-debian-developer-setup
           - uidmap
