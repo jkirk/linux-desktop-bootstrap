@@ -11,7 +11,7 @@
       aptrepo_apt_key_url: "https://dl.winehq.org/wine-builds/winehq.key"
       aptrepo_apt_key_file: "winehq-archive.key"
       aptrepo_apt_repository: "http://dl.winehq.org/wine-builds/debian"
-        aptrepo_apt_release: "{{ ansible_distribution_release }}"
+      aptrepo_apt_release: "{{ ansible_distribution_release }}"
       aptrepo_apt_component: "main"
       aptrepo_apt_sources_file: "winehq-{{ ansible_distribution_release }}.list"
 

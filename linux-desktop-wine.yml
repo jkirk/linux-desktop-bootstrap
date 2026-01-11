@@ -1,0 +1,38 @@
+---
+# Example:
+#
+#   ansible-playbook -K linux-desktop-wine.yml
+
+- name: Install wine from Debian for Linux-Desktop
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: "wine: Make sure dpkg architecture amd64 is present"
+      ansible.builtin.lineinfile:
+        dest: "/var/lib/dpkg/arch"
+        line: "amd64"
+        create: true
+      notify: apt update
+    - name: "wine: Make sure dpkg architecture i386 is present"
+      ansible.builtin.lineinfile:
+        dest: "/var/lib/dpkg/arch"
+        line: "i386"
+        create: true
+      notify: apt update
+    - name: "wine: Install wine + recommended packages"
+      ansible.builtin.apt:
+        name:
+          - cabextract
+          - ttf-mscorefonts-installer
+          - winbind
+          - wine
+        install_recommends: true
+        state: present
+    - name: "wine: Install winetricks from Github"
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+        dest: /usr/local/bin/winetricks
+        mode: 0775
+        owner: root
+        group: root
