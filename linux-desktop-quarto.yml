@@ -1,0 +1,16 @@
+---
+#
+# Quarto is an open-source scientific and technical publishing system built on Pandoc.
+#
+# Example:
+#
+#   ansible-playbook -K linux-desktop-quarto.yml
+
+- name: Install quarto-cli for Linux-Desktop
+  hosts: localhost
+  become: yes
+  roles:
+    - role: github_install
+      github_install_name: quarto-cli
+      github_install_fullname: quarto-cli
+      github_install_repos: quarto-dev/quarto-cli
