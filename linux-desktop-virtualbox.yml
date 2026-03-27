@@ -34,4 +34,4 @@
         group: root
         mode: 0644
     - name: "virtualbox: Install VirtualBox Extension Pack"
-      ansible.builtin.shell: VBoxManage extpack install --accept-license=33d7284dc4a0ece381196fda3cfe2ed0e1e8e7ed7f27b9a9ebc4ee22e24bd23c --replace "/tmp/Oracle_VM_VirtualBox_Extension_Pack-{{ virtualbox_extpack_version }}.vbox-extpack"
+      ansible.builtin.shell: VBoxManage extpack install --accept-license=eb31505e56e9b4d0fbca139104da41ac6f6b98f8e78968bdf01b1f3da3c4f9ae --replace /tmp/Oracle_VirtualBox_Extension_Pack-{{ virtualbox_extpack_version }}.vbox-extpack
