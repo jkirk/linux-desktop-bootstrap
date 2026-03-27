@@ -1,0 +1,6 @@
+---
+aptrepo_apt_release: "{{ ansible_distribution_release }}"
+
+_aptrepo_release_map:
+  gigi: trixie
+  faye: bookworm
