@@ -1,0 +1,22 @@
+---
+#
+# Mindwtr™ is a free, open-source to-do app built on the Getting Things Done
+# (GTD) method: it captures every task and idea in seconds, then shows you the
+# one next thing to do.
+#
+# Mindwtr = "mind like water": the calm you get when nothing is rattling around
+# in your head.
+#
+# Example:
+#
+#   ansible-playbook -K linux-desktop-mindwtr.yml
+
+- name: Install Mindwtr for Linux-Desktop
+  hosts: localhost
+  become: yes
+  tasks:
+  roles:
+    - role: github_install
+      github_install_name: Mindwtr
+      github_install_fullname: Mindwtr
+      github_install_repos: dongdongbh/Mindwtr
