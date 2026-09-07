@@ -1,0 +1,2 @@
+---
+ansible_managed: "Ansible managed, do NOT edit manually: {{ template_fullpath }} modified on {{ template_mtime }} by {{ template_uid }} on {{ template_host }}"
